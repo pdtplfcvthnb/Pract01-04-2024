@@ -1,4 +1,3 @@
-# Pract01-04-2024
 import java.util.Scanner;
 public class Main
 {
