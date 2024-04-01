@@ -1,0 +1,106 @@
+import java.util.Scanner;
+public class Main {
+     public static void main(String[] args) {
+         Scanner scanner = new Scanner(System.in);
+         int choice = 0;          
+         int Vent = 0; 
+         boolean Act = false; 
+         boolean door = false;
+         boolean Art1 = false;
+         boolean Art2 = false;
+         boolean Art3 = false;
+         String artef = "Артефакт";
+         String otm = "Отмычку";
+         String key = "Ключ";
+
+
+         System.out.println("Вы проснулись в незнакомой комнате. Вы забыли свое имя. Придумайте новое.");
+         String name = scanner.nextLine();
+         System.out.println(name + ", Вам нужно сбежать из комнаты. Вы оглядываетесь.");
+         showPossibleActions();
+            choice = scanner.nextInt();
+         while (true) {
+             switch (choice) 
+             {                 
+                 case 0: 
+                    showPossibleActions();
+                    break;
+                    
+                 case 1: 
+                     if (door) 
+                     {
+                        System.out.println("Вы сбежали.");
+                        return;
+                     } 
+                     else 
+                     {
+                        System.out.println("Дверь заперта.");
+                     }
+                     break;
+                     
+                 case 2:
+                 System.out.println(name + ", вы нашли " + artef);
+                 Art1 = true;
+                 break;
+                  
+                 case 3: 
+                  if (Act) 
+                  {
+                   System.out.println("Ящик открылся, " + name + ", вы нашли " + otm);
+                   door = true;
+                  }
+                  else 
+                  {
+                   System.out.println("Ящик закрыт.");
+                  }
+                  break;
+                 
+                 case 4:
+                     if (Vent < 4) 
+                     {
+                        System.out.println("Вы открыли вентиляцию. " + name + ", вы нашли " + artef);
+                        Art2 = true;
+                     } 
+                     else 
+                     {
+                        System.out.println("Вентиляция закрыта, попытайтесь еще.");
+                        Vent++;
+                     }
+                     break;
+
+                 case 5: 
+                  System.out.println(name + " вы нашли " + artef);
+                  Art3 = true;
+                  break;
+
+                 case 6: 
+                     if (Art1 && Art2 && Art3) 
+                     {
+                        System.out.println("Вы активировали статую. " + name + ", вы нашли " + key);
+                        Act = true;
+                     } 
+                     else 
+                     {
+                        System.out.println("Статуя не активирована.");
+                     }
+                     break;
+
+                 default:
+                    System.out.println("Ошибка.");
+                    break;
+             }
+             showPossibleActions();
+             choice = scanner.nextInt();
+         }
+     }
+     private static void showPossibleActions() 
+     {
+        System.out.println("1. Открыть дверь");
+        System.out.println("2. Заглянуть под кровать");
+        System.out.println("3. Открыть ящик в углу комнаты");
+        System.out.println("4. Открыть вентиляцию");
+        System.out.println("5. Взглянуть на тумбочку");
+        System.out.println("6. Взглянуть на статую рядом с дверью");
+        System.out.print("Выберите действие: ");
+     }
+ }
