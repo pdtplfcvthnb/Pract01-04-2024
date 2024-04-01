@@ -1,6 +1,7 @@
 import java.util.Scanner;
 public class Main {
-     public static void main(String[] args) {
+     public static void main(String[] args) 
+     {
          Scanner scanner = new Scanner(System.in);
          int choice = 0;          
          int Vent = 0; 
@@ -13,13 +14,13 @@ public class Main {
          String otm = "Отмычку";
          String key = "Ключ";
 
-
          System.out.println("Вы проснулись в незнакомой комнате. Вы забыли свое имя. Придумайте новое.");
          String name = scanner.nextLine();
          System.out.println(name + ", Вам нужно сбежать из комнаты. Вы оглядываетесь.");
          showPossibleActions();
             choice = scanner.nextInt();
-         while (true) {
+         while (true) 
+         {
              switch (choice) 
              {                 
                  case 0: 
