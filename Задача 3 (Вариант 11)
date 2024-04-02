@@ -1,26 +1,39 @@
 import java.util.Scanner;
+import java.util.InputMismatchException;
+
 public class Main
 {
     public static void main(String[] args) 
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите количество уровней пирамиды: ");
-        float levels = scanner.nextFloat();
-        if ((levels > 0) && (levels%1==0))
+        while (true) 
         {
-            for (int i = 1; i <= levels; i++) 
+            try
             {
-            for (int j = 1; j <= i; j++) 
+                System.out.print("Введите количество уровней пирамиды: ");
+                int levels = Integer.parseInt(scanner.next());
+                if (levels <= 0)
+                {
+                    System.out.println("Введенное число должно быть положительным и больше 0");
+                    continue;
+                }
+                {
+                    for (int i = 1; i <= levels; i++) 
+                    {
+                    for (int j = 1; j <= i; j++) 
+                    {
+                        System.out.print(j + "");
+                    }
+                    System.out.println();
+                    }
+                }
+                
+                break;
+            }
+            catch(NumberFormatException e)
             {
-                System.out.print(j + "");
+                System.out.println("Введенное число должно быть целым");
             }
-            System.out.println();
-            }
-        }
-        
-        else 
-        {
-            System.out.print("Oшибка");
         }
     }
 }
